@@ -1,0 +1,43 @@
+<div>
+
+  <div>
+    <label for="keyup">keyup</label>
+    <input #ku (keyup)="keyup(ku.value)" type="text" id="keyup"/>
+
+    <label for="keydown">keydown</label>
+    <input #kd (keydown)="keydown(kd.value)" type="text" id="keydown"/>
+
+    <label for="input">input</label>
+    <input #input (input)="input(input.value)" type="text" id="input"/>
+  </div>
+  <div>
+    <label for="paste">paste</label>
+    <input #pas (paste)="paste(pas.value)" type="text" id="paste"/>
+
+    <label for="keypress">keypress</label>
+    <input #kp (keypress)="keypress(kp.value)" type="text" id="keypress"/>
+
+    <label for="change">change</label>
+    <input #ch (change)="change(ch.value)" type="text" id="change"/>
+  </div>
+
+  <div>
+    <div ngForm ngModel="#form">
+    <label for="ngm">ngModel</label>
+    <input (ngModelChange)="ngmChange()" [(ngModel)]="boundData" type="text" id="ngm" name="ngm"/>
+    </div>
+
+
+  </div>
+  <div>
+    boundData: {{boundData}}  changeData={{datachange}}
+  </div>
+  <div>
+    action: {{action}}
+  </div>
+
+  <div>
+
+  </div>
+
+</div>
