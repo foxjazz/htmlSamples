@@ -8,7 +8,7 @@
     <input #kd (keydown)="keydown(kd.value)" type="text" id="keydown"/>
 
     <label for="input">input</label>
-    <input #input (input)="input(input.value)" type="text" id="input"/>
+    <input #input (input)="input2(input.value)" type="text" id="input"/>
   </div>
   <div>
     <label for="paste">paste</label>
@@ -23,19 +23,39 @@
 
   <div>
     <div ngForm ngModel="#form">
-    <label for="ngm">ngModel</label>
-    <input (ngModelChange)="ngmChange()" [(ngModel)]="boundData" type="text" id="ngm" name="ngm"/>
-    </div>
+      <div>
+        <label for="ngm">ngModel</label>
+        <input (ngModelChange)="ngmChange()" [(ngModel)]="boundData" type="text" id="ngm" name="ngm"/>
+      </div>
+      <div>
+        <label for="disclaim">drop down xample
 
+        </label>
+        <select type="text" [(ngModel)]="dropdownvar" id="disclaim" #disc="ngModel"
+                name="disc" (ngModelChange)="updateDropDown()">
+           <option *ngFor="let c of dropdownitems" [value]="c" [selected]="c === dropdownvar">{{c}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div>
 
   </div>
   <div>
     boundData: {{boundData}}  changeData={{datachange}}
   </div>
   <div>
+    <ul>
+      <li *ngFor="let a of mchlist">{{a}}</li>
+    </ul>
+    <button (click)="clearList()"> clear list</button>
+  </div>
+  <div>
     action: {{action}}
   </div>
-
+  <div>
+    drop down:{{dropdownvar}}  {{dropdownstatus}}
+  </div>
   <div>
 
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-inputs',
@@ -11,13 +12,26 @@ export class InputsComponent implements OnInit {
   public datachange="";
   public action="";
   public test: string;
+  public dropdownvar: string;
+  public dropdownitems = [];
+  public dropdownstatus = "";
+  public mch: Subject<string>;
+  public mchlist = [];
+  public cnt = 0;
   constructor() { }
 
   ngOnInit() {
-    this.boundData = "started";
+    this.dropdownitems.push("dd item one");
+    this.dropdownitems.push("dd item two");
+    this.dropdownitems.push("dd item three");
+    this.dropdownvar = "dd item two";
   }
   ngmChange(){
-    this.action="ngmChange";
+    this.mchlist.push("changed " + this.cnt);
+    this.cnt++;
+  }
+  clearList() {
+    this.mchlist = [];
   }
   keyup(d: any){
     this.datachange = d;
@@ -34,9 +48,12 @@ export class InputsComponent implements OnInit {
     this.datachange = d;
   }
   paste(d: string){
+    this.datachange = "paste: " + d;
+  }
+  input2(d: string){
     this.datachange = d;
   }
-  input(d: string){
-    this.datachange = d;
+  updateDropDown(){
+    this.dropdownstatus = "updated";
   }
 }
