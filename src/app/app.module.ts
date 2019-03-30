@@ -6,12 +6,19 @@ import { AppComponent } from './app.component';
 import { InputsComponent } from './inputs/inputs.component';
 import { ComponentInteractionComponent } from './component-interaction/component-interaction.component';
 import {FormsModule} from '@angular/forms';
+import { TextinputComponent } from './textinput/textinput.component';
+import { DatesampleComponent } from './datesample/datesample.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputsComponent,
-    ComponentInteractionComponent
+
+    ComponentInteractionComponent,
+
+    TextinputComponent,
+
+    DatesampleComponent
   ],
   imports: [
     BrowserModule,
